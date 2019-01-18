@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.license       = "MIT"
 
   spec.files         = ['lib/ims.rb']
-  spec.executables   = ['bin/imsE']
+  spec.executables   = []
   spec.test_files    = ['tests/test_ims.rb']
   spec.require_paths = ["lib"]
 end

@@ -1,4 +1,18 @@
 
+IMS project
+
+project skeleton copied from 'Learning Ruby the Hard Way'
+
+```rake test``` to run the test
+
+====
+still working on this README
+
+this is basically commands to be implemented and my design for now
+
+====
+
+
 command:
 Help - display a simple help screen. This is a text message, multi line, that explains the available commands. Sort of like this list.
 Exit - save state and exit. The effect of this is that when the app is run again, it is back to exactly where it was when you exited. What this amounts to is basically to make sure the tracks and artists and their info have all been saved.
@@ -25,7 +39,7 @@ Questions:
 
 how to put these three together But test them separately?
 
-
+writing test in a big function
 
 
 
@@ -33,10 +47,27 @@ how to put these three together But test them separately?
 1.
 class Main
 
+  METHOD
+
+  init():
+    create interpreter of input
+    load DJTable
+
+  run():
+    loop, waiting for input
+
+
+  ATTR
+
+    table
+    interpreter
+
 
 
 2.
 class RequestInterpreter
+
+  METHOD
 
   interpret():
      waiting for input
@@ -44,20 +75,54 @@ class RequestInterpreter
      output: method and arguments
 
 
-
-
 3.
 class DJTable
 
-  hash, id => record
+  METHOD
+
   serialize()
   deserialize()
 
-  getter
-  setter
+
+
+  get_status()
+
+  get_artist_info(artist_id)
+
+  get_track_info(track_id)
+
+  get_track_list(artist_id)
+
+  get_count(artist_id)
+
+
+  play(name, track)
+    if
+      not exist, err
+    else
+      add to played
+
+
+
+  add_artist(name)
+    if name exists, err
+    if initial exists, get new id, add to hash
+
+  add_track(name, track)
+
+
+
+
+  ATTR
+
+  hash, id => record
+  played
+
 
 
 class ArtistRecord
+
+
 
   artist_id
   artist_name
