@@ -10,22 +10,25 @@ describe "my test" do
 
       @table.add_artist("micheal jackson")
 
-      @table.add_track("abc", "mj")
-      @table.add_track("jam", "mj")
-      @table.add_track("beat it", "mj")
-      @table.add_track("thriller", "mj")
+      @table.add_track("abc", "mj0")
+      @table.add_track("jam", "mj0")
+      @table.add_track("beat it", "mj0")
+      @table.add_track("thriller", "mj0")
 
-      @table.play("jam")
-      @table.play("abc")
-      @table.play("thriller")
-      @table.play("beat it")
-    end
-  
-    it "testing" do
-      
+      @table.play(0)
+      @table.play(1)
+      @table.play(2)
+      @table.play(3)
     end
 
     it "summary" do
-  
-    
+        puts @table.get_summary
+    end
+
+    it "artist info" do
+        puts @table.get_artist_info("mj0")
+    end
+
+
+
   end

@@ -3,93 +3,79 @@ require "./lib/ims/ArtistRecord.rb"
 
 class DJTable
 
-  def initialize(hash = {})
-    # id => record
-    @table = {}
-    # played list
+  def initialize(args = {})
+    @id_to_record = {}
+    @id_to_artist = {}
+    @id_to_track = {}
     @played = []
-    @name_to_id = {}
   end
 
-
-  attr_accessor :table
+  attr_accessor :id_to_record
+  attr_accessor :id_to_artist
+  attr_accessor :id_to_track
   attr_accessor :played
-  attr_accessor :name_to_id
-
-
-  def save()
-  end
-
-  def load()
-  end
-
+  
   def get_summary()
-    status = ""
+    status = "Recently played tracks:\n"
     (0...3).each do |i|
-      status = status + "#{played[i]} \n" if played.length > i
+       status << "#{played[played.length-1-i]}\n" if played.length > i
     end
     return status
   end
 
-  def get_artist_info()
+  def get_artist_info(artist_id)
+    if !id_to_artist.key?(artist_id)
+      raise ArgumentError.new("Error, artist id '#{artist_id}' does not exist")
+    end
+    record = id_to_record[artist_id]
+    info = "Artist Name:\n#{record.name}\n"
+    info << "Track Name, Track ID:\n"
+    (0..record.tracks.length).each do |i|
+      info << "#{record.tracks[i]}, #{record.track_ids[i]}\n"
+    end
+    return info
   end
 
-  def get_track_info()
+  def get_track_info(track_id)
+    if !id_to_track.key?(track_id)
+      raise ArgumentError.new("Error, track id '#{track_id}' does not exist")
+    end
+    return "Track Name: #{id_to_track[track_id]}"
   end
 
-  def get_track_list()
-  end
-
-
-  # get unique id, need to deal with ambiguity
-  def get_id(d_name)
+  def assign_artist_id(artist)
     id = ""
-    d_name.downcase.split.each do |i|
-      id = id + i[0]
+    artist.split.each do |i|
+      id << i[0]
     end
-    return id
+    return "#{id}#{id_to_artist.length}"
   end
 
-  # input first/last name should be sparate with 1 space
-  def add_artist(name)
-    name = name.downcase
-    id = get_id(name)
-    table.update(id => ArtistRecord.new(name))
-    name_to_id.update(name => id)
+  def assign_track_id(track)
+    return id_to_track.length
   end
 
-
-  def add_track(name, track)
-    name = name.downcase
-    track = track.downcase
-
-    if table[id] == nil
-      print "Artist not exisits!"
-      return
-    end
-
-    table[id].tracks.push(track)
-
-    # how to deal with message
-    print "Add track #{track} to artisit with id: #{id} \n"
+  def add_artist(artist)
+    id = assign_artist_id(artist)
+    id_to_record.update(id => ArtistRecord.new(artist))
+    id_to_artist.update(id => artist)
   end
 
-
-
-  def play(name, track)
-    name = name.downcase
-    track = track.downcase
-    id = name_to_id[name]
-
-    if table[id].tracks.include?(track)
-      # add to played
-      played.push(track)
-      if played.length > 3
-        played.shift
-      end
+  def add_track(track, artist_id)
+    if !id_to_artist.key?(artist_id)
+      raise ArgumentError.new("Error, artist id '#{artist_id}' does not exist")
     end
+    track_id = assign_track_id(track)
+    id_to_track.update(track_id => track)
+    id_to_record[artist_id].tracks.push(track)
+    id_to_record[artist_id].track_ids.push(track_id)
+  end
 
-    # error?
+  def play(track_id)
+    if !id_to_track.key?(track_id)
+      raise ArgumentError.new("Error, track id '#{track_id}' does not exist")
+    end
+    played.push(id_to_track[track_id])
   end
 
 end
