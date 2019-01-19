@@ -1,0 +1,28 @@
+---
+:table: !ruby/object:DJTable
+  id_to_record:
+    mj0: !ruby/object:ArtistRecord
+      name: micheal jackson
+      tracks:
+      - abc
+      - jam
+      - beat it
+      - thriller
+      track_ids:
+      - 0
+      - 1
+      - 2
+      - 3
+  id_to_artist:
+    mj0: micheal jackson
+  id_to_track:
+    0: abc
+    1: jam
+    2: beat it
+    3: thriller
+  played:
+  - abc
+  - jam
+  - beat it
+  - thriller
+:last_run: 2019-01-19 10:59:07.889563000 -05:00

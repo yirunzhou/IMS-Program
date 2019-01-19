@@ -3,22 +3,18 @@ require "./lib/ims.rb"
 require "./lib/ims/DJTable.rb"
 require "./lib/ims/ArtistRecord.rb"
 
+require 'yaml/store'
+
 
 describe "my test" do
     before do
-      @table = DJTable.new()
+      store = YAML::Store.new('./data/test_store.yml')
+      @table = store.transaction{store[:table]}
 
-      @table.add_artist("micheal jackson")
+      store.transaction do  
+        store[:last_run] = Time.now
+      end
 
-      @table.add_track("abc", "mj0")
-      @table.add_track("jam", "mj0")
-      @table.add_track("beat it", "mj0")
-      @table.add_track("thriller", "mj0")
-
-      @table.play(0)
-      @table.play(1)
-      @table.play(2)
-      @table.play(3)
     end
 
     it "summary" do
