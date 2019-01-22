@@ -40,30 +40,6 @@ class Main
       @store = YAML::Store.new('./data/test_store.yml')
       @table = @store.transaction{@store[:table]}
       @table = DJTable.new if @table == nil
-
-      @hash = {
-        "exit" => -> {save; exit},
-        "help" => -> {@table.help},
-        "info" => -> {@table.get_summary},
-        "info artist" => -> {
-          @table.get_artist_info(array[2])
-        },
-        "info track" => -> {
-          @table.get_track_info(array[2])
-        },
-        "count tracks by" => -> {
-          @table.count_tracks(array[3])
-        },
-        "list tracks by" => -> {
-          @table.list_track_by(array[3])
-        }, 
-        "add artist" => -> {
-          @table.add_artist(artist)
-        },
-        "add track" => -> {
-          @table.add_track(track, artist_id)
-        }
-      }
     end
 
     def run()
@@ -84,42 +60,37 @@ class Main
 
     # input is processed to words splited by 1 space
     # return the input command's category
-    
+
     def execute(str)
       
-      if match = str.match(/^(exit|help)\b/)
-        @hash[match.captures[0]].call
-        return "exit || help"
+      if str.match(/^exit\b/)
+        save_and_exit
+      elsif str.match(/^help\b/)
+        @table.help
+
       elsif match = str.match(/^info track ([\s\S]*)/)
         @table.get_track_info(match.captures[0].to_i)
-        return "info track", match.captures[0]
 
       elsif match = str.match(/^info artist ([\s\S]*)/)
         @table.get_artist_info(match.captures[0])
-        return "info artist", match.captures[0]
 
       elsif match = str.match(/^info\b/)
         @table.get_summary
-        return "info"
 
       elsif match = str.match(/^count tracks by ([\s\S]*)/)
         @table.count_tracks(match.captures[0])
-        return "count tracks by", match.captures[0]
 
       elsif match = str.match(/^list tracks by ([\s\S]*)/)
         @table.list_track_by(match.captures[0])
-        return "list tracks by", match.captures[0]
 
       elsif match = str.match(/^add track ([\s\S]*) by ([\s\S]*)\b/)
         @table.add_track(match.captures[0], match.captures[1])
-        return "add track", match.captures[0], match.captures[1]
 
       elsif match = str.match(/^add artist ([\s\S]*)/)
         @table.add_artist(match.captures[0])
-        return "add artist", match.captures[0]
 
       else
-        return "not valid command"
+        return "*** -IMS: command not found ***"
       end
 
     end
@@ -129,5 +100,10 @@ class Main
         @store[:table] = @table
         @store[:last_run] = Time.now
       end
+    end
+
+    def save_and_exit
+      save
+      exit
     end
 end
