@@ -17,20 +17,28 @@
       name: anderson paak
       tracks:
       - the free nationals
+      - some random track
       track_ids:
       - 4
+      - 5
+    aan2: !ruby/object:ArtistRecord
+      name: an artist's name
+      tracks: []
+      track_ids: []
   id_to_artist:
     mj0: micheal jackson
     ap1: anderson paak
+    aan2: an artist's name
   id_to_track:
     0: abc
     1: jam
     2: beat it
     3: thriller
     4: the free nationals
+    5: some random track
   played:
   - abc
   - jam
   - beat it
   - thriller
-:last_run: 2019-01-22 07:17:02.766493000 -05:00
+:last_run: 2019-01-22 15:00:11.833778000 -05:00

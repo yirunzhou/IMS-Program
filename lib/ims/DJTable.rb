@@ -14,7 +14,13 @@ class DJTable
   attr_accessor :id_to_track
   attr_accessor :played
 
-  def get_summary()
+  # TODO: store help msg to file
+  # TODO: move validation of argument to another function
+  # TODO: add artist_id => artist name relation
+  # TODO: cap artist name when displaying it
+  # TODO: empty line space
+  # TODO: check track_id is something like 1o09asdjnd, not valid
+  def info()
     status = "Recently played tracks:\n"
     (0...3).each do |i|
        status << "#{played[played.length-1-i]}\n" if played.length > i
@@ -22,7 +28,7 @@ class DJTable
     return status
   end
 
-  def get_artist_info(artist_id)
+  def info_artist(artist_id)
     if !id_to_artist.key?(artist_id)
       raise ArgumentError.new("Error, artist id '#{artist_id}' does not exist")
     end
@@ -35,34 +41,23 @@ class DJTable
     return info
   end
 
-  def list_track_by(artist_id)
-    return get_artist_info(artist_id)
-  end
-
-  def get_track_info(track_id)
+  # TODO: and its artist?
+  def info_track(track_id)
     if !id_to_track.key?(track_id)
       raise ArgumentError.new("Error, track id '#{track_id}' does not exist")
     end
     return "Track Name: #{id_to_track[track_id]}"
   end
 
-  def count_tracks(artist_id)
+  def count_tracks_by(artist_id)
     if !id_to_record.key?(artist_id)
       raise ArgumentError.new("Error, artist id '#{artist_id}' does not exist")
     end
-    return id_to_record[artist_id].tracks.length
+    return id_to_record[artist_id].tracks.length.to_s
   end
 
-  def assign_artist_id(artist)
-    id = ""
-    artist.split.each do |i|
-      id << i[0]
-    end
-    return "#{id}#{id_to_artist.length}"
-  end
-
-  def assign_track_id(track)
-    return id_to_track.length
+  def list_tracks_by(artist_id)
+    return info_artist(artist_id)
   end
 
   def add_artist(artist)
@@ -127,4 +122,26 @@ class DJTable
     return msg
   end
 
+  ### aux functions ###
+
+  # TODO: problem with existing artist name
+  def assign_artist_id(artist)
+    id = ""
+    artist.split.each do |i|
+      id << i[0]
+    end
+    return "#{id}#{id_to_artist.length}"
+  end
+
+  def assign_track_id(track)
+    return id_to_track.length
+  end
+
+end
+
+
+class String
+  def numeric?
+    Float(self) != nil rescue false
+  end
 end

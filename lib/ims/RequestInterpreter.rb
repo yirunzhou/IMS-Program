@@ -1,5 +1,0 @@
-class RequestInterpreter
-
-  
-
-end
