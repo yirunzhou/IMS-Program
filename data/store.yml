@@ -1,0 +1,7 @@
+---
+:table: !ruby/object:DJTable
+  id_to_record: {}
+  id_to_artist: {}
+  id_to_track: {}
+  played: []
+:last_run: 2019-01-21 20:05:18.429346000 -05:00
