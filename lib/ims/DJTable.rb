@@ -35,6 +35,10 @@ class DJTable
     return info
   end
 
+  def list_track_by(artist_id)
+    return get_artist_info(artist_id)
+  end
+
   def get_track_info(track_id)
     if !id_to_track.key?(track_id)
       raise ArgumentError.new("Error, track id '#{track_id}' does not exist")
@@ -76,7 +80,7 @@ class DJTable
     id_to_track.update(track_id => track)
     id_to_record[artist_id].tracks.push(track)
     id_to_record[artist_id].track_ids.push(track_id)
-    return "Successfully added, track id '#{id}'"
+    return "Successfully added, track id '#{track_id}'"
   end
 
   def play(track_id)

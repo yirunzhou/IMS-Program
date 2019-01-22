@@ -13,16 +13,24 @@
       - 1
       - 2
       - 3
+    ap1: !ruby/object:ArtistRecord
+      name: anderson paak
+      tracks:
+      - the free nationals
+      track_ids:
+      - 4
   id_to_artist:
     mj0: micheal jackson
+    ap1: anderson paak
   id_to_track:
     0: abc
     1: jam
     2: beat it
     3: thriller
+    4: the free nationals
   played:
   - abc
   - jam
   - beat it
   - thriller
-:last_run: 2019-01-22 06:45:32.893365000 -05:00
+:last_run: 2019-01-22 07:13:12.432973000 -05:00

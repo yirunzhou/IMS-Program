@@ -17,9 +17,9 @@ describe "my test" do
       end
 
       @main = Main.new
-      # @table.add_artist("anderson paak")
+    #   @table.add_artist("anderson paak")
+    #   @table.add_track("the free nationals", "ap1")
       
-
 
     end
 
@@ -54,18 +54,18 @@ describe "my test" do
     it "add command" do
         @main.execute("add artist anderson paak")
         .must_equal(["add artist", "anderson paak"])
-        @main.execute("add track the free nationals by ap0")
-        .must_equal(["add track", "the free nationals", "ap0"])
+        @main.execute("add track the free nationals by ap1")
+        .must_equal(["add track", "the free nationals", "ap1"])
     end
 
     it "count or list command" do
-        @main.execute("count tracks by ap0").must_equal(["count tracks by", "ap0"])
-        @main.execute("list tracks by ap0").must_equal(["list tracks by", "ap0"])
+        @main.execute("count tracks by ap1").must_equal(["count tracks by", "ap1"])
+        @main.execute("list tracks by ap1").must_equal(["list tracks by", "ap1"])
     end
 
     it "mix command" do
-        @main.execute("add track the free nationals exit by ap0")
-        .must_equal(["add track", "the free nationals exit", "ap0"])
+        @main.execute("add track the free nationals exit by ap1")
+        .must_equal(["add track", "the free nationals exit", "ap1"])
     end
 
     it "not valid" do
