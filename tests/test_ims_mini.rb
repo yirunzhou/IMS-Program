@@ -99,8 +99,8 @@ describe "my test" do
       @main.execute("add artist fujisawa mamoru").must_equal @add_artist_fujisawa_mamoru
     end
 
-    it "run" do
-      @main.run
+    it "help" do
+      @table.help.must_equal @help_msg
     end
 
     # it "exit or help command" do
