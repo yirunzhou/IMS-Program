@@ -45,22 +45,27 @@ describe "my test" do
 
     it "info command" do
         @main.execute("info").must_equal("info")
-        @main.execute("info artist mj0").must_equal("info artist")
-        @main.execute("info track 0").must_equal("info track")
+        @main.execute("info artist mj0")
+        .must_equal(["info artist", "mj0"])
+        @main.execute("info track 0")
+        .must_equal(["info track", "0"])
     end
 
     it "add command" do
-        @main.execute("add artist anderson paak").must_equal("add artist")
-        @main.execute("add track The Free Nationals by ap0").must_equal("add track")
+        @main.execute("add artist anderson paak")
+        .must_equal(["add artist", "anderson paak"])
+        @main.execute("add track the free nationals by ap0")
+        .must_equal(["add track", "the free nationals", "ap0"])
     end
 
     it "count or list command" do
-        @main.execute("count tracks by ap0").must_equal("count tracks by")
-        @main.execute("list tracks by ap0").must_equal("list tracks by")
+        @main.execute("count tracks by ap0").must_equal(["count tracks by", "ap0"])
+        @main.execute("list tracks by ap0").must_equal(["list tracks by", "ap0"])
     end
 
     it "mix command" do
-        @main.execute("add track the free nationals exit by ap0").must_equal("add track")
+        @main.execute("add track the free nationals exit by ap0")
+        .must_equal(["add track", "the free nationals exit", "ap0"])
     end
 
     it "not valid" do

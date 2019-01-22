@@ -89,24 +89,20 @@ class Main
       if match = str.match(/^(exit|help)\b/)
         @hash[match.captures[0]].call
         return "exit || help"
-      elsif str.match(/^info\b/)
-        if str.match(/^info track\b/)
-          return "info track"
-        elsif str.match(/^info artist\b/)
-          return "info artist"
-        else
-          return "info"
-        end
-      elsif str.match(/^(count|list) tracks by\b/)
-        if str.match(/^count/)
-          return "count tracks by"
-        else
-          return "list tracks by"
-        end
-      elsif str.match(/^add track [\s\S]* by\b/)
-        return "add track"
-      elsif str.match(/^add artist [\s\S]*/)
-        return "add artist"
+      elsif match = str.match(/^info track ([\s\S]*)/)
+        return "info track", match.captures[0]
+      elsif match = str.match(/^info artist ([\s\S]*)/)
+        return "info artist", match.captures[0]
+      elsif match = str.match(/^info\b/)
+        return "info"
+      elsif match = str.match(/^count tracks by ([\s\S]*)/)
+        return "count tracks by", match.captures[0]
+      elsif match = str.match(/^list tracks by ([\s\S]*)/)
+        return "list tracks by", match.captures[0]
+      elsif match = str.match(/^add track ([\s\S]*) by ([\s\S]*)\b/)
+        return "add track", match.captures[0], match.captures[1]
+      elsif match = str.match(/^add artist ([\s\S]*)/)
+        return "add artist", match.captures[0]
       else
         return "not valid command"
       end
