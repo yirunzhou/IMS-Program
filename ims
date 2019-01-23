@@ -1,0 +1,4 @@
+require "./lib/ims/Main.rb"
+
+m = Main.new
+m.run
