@@ -72,6 +72,6 @@ Also I put the long help message in `./data/help_msg/yml`
 
 ## Other thoughts
 
-I should probably separate my test to multiple files so that I could test different parts easier.
-Maybe I can loose the coupling between `Main` and `DJTable` as sometimes making my test messy.
-Too many if else in `Main` when trying to figure out what command user wants, I try to use hashing and lambda but I gave up because when I use them my code are even much more longer
+- I should probably separate my test to multiple files so that I could test different parts easier.
+- Maybe I can loose the coupling between `Main` and `DJTable` as sometimes making my test messy.
+- Too many if else in `Main` when trying to figure out what command user wants, I try to use hashing and lambda but I gave up because when I use them my code are even much more longer
