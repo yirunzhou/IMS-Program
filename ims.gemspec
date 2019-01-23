@@ -14,6 +14,6 @@ Gem::Specification.new do |spec|
 
   spec.files         = ['lib/ims.rb']
   spec.executables   = []
-  spec.test_files    = ['tests/test_ims.rb']
+  spec.test_files    = ['tests/test_ims_mini.rb']
   spec.require_paths = ["lib"]
 end
