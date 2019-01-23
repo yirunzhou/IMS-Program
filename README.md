@@ -5,7 +5,8 @@
 
 Command line program that helps DJ to manage their aritsts and tracks. 
 COSI 105b assiginment 
-
+Github: 
+https://github.com/yirunzhou/IMS-Program/blob/master/README.md
 
 ## Manual
 
