@@ -44,11 +44,12 @@ IMS Command Mannual:
 
 ## Design
 
-
+There are mainly three classes, 
 
 ## Unit Test
 
-```rake test``` to run the test, testing code is in ```./test/test_ims_mini.rb```
+I used `Rakefile` to automate the test.
+`rake test` to run the test, testing code is in `./test/test_ims_mini.rb`
 
 
 
