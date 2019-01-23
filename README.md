@@ -56,7 +56,7 @@ There are mainly three classes, `DJTable`, `ArtistRecord`, `Main`:
  
  #### Main
  - Act as an interface between raw input and `DJTable` instance;
- - Process raw string input to see what command user is intended to use and then extract arguments accordingly, finally, call the right method of `DJTable` instance with right arguments;
+ - Process raw string input to see what command user is intended to use and then extract arguments accordingly(regex), finally, call the right method of `DJTable` instance with right arguments;
  - Loop until user exit;
  
 ## Unit Test
@@ -74,3 +74,4 @@ Also I put the long help message in `./data/help_msg/yml`
 
 I should probably separate my test to multiple files so that I could test different parts easier.
 Maybe I can loose the coupling between `Main` and `DJTable` as sometimes making my test messy.
+Too many if else in `Main` when trying to figure out what command user wants, I try to use hashing and lambda but I gave up because when I use them my code are even much more longer
