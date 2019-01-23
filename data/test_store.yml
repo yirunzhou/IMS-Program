@@ -1,0 +1,44 @@
+---
+:table: !ruby/object:DJTable
+  id_to_record:
+    mj0: !ruby/object:ArtistRecord
+      name: michael jackson
+      tracks:
+      - abc
+      - jam
+      - beat it
+      - thriller
+      track_ids:
+      - 0
+      - 1
+      - 2
+      - 3
+    ap1: !ruby/object:ArtistRecord
+      name: anderson paak
+      tracks:
+      - the free nationals
+      - some random track
+      track_ids:
+      - 4
+      - 5
+    aan2: !ruby/object:ArtistRecord
+      name: an artist's name
+      tracks: []
+      track_ids: []
+  id_to_artist:
+    mj0: michael jackson
+    ap1: anderson paak
+    aan2: an artist's name
+  id_to_track:
+    0: abc
+    1: jam
+    2: beat it
+    3: thriller
+    4: the free nationals
+    5: some random track
+  played:
+  - abc
+  - jam
+  - beat it
+  - thriller
+:last_run: 2019-01-23 01:38:56.261234000 -05:00

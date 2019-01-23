@@ -1,10 +1,13 @@
 require "./lib/ims/DJTable.rb"
 require 'yaml/store'
 
-# TODO: indentattion check
 class Main
-  def initialize()
-    @store = YAML::Store.new('./data/data.yml')
+  def initialize(test=false)
+    if !test
+      @store = YAML::Store.new('./data/data.yml')  
+    else 
+      @store = YAML::Store.new('./data/test_store.yml')
+    end
     @table = @store.transaction{@store[:table]}
     @table = DJTable.new if @table == nil
   end
@@ -61,7 +64,7 @@ class Main
       msg = @table.play(match.captures[0])
       
     else
-      msg = "-IMS: command not found ***"
+      msg = "-IMS: command not found"
     end
 
     return msg

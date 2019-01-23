@@ -9,70 +9,18 @@ require 'yaml/store'
 
 describe "my test" do
     before do
-      @store = YAML::Store.new('./data/test_store.yml')
-      @table = @store.transaction{@store[:table]}
-      
-      @store.transaction do  
-        @store[:last_run] = Time.now
-      end
+      # testing mode set to true
+      @main = Main.new(true)
 
-      @main = Main.new
-
-      @mj0_info = "Artist Name:\n\tmicheal jackson\nTrack Name, Track ID:\n\tabc, 0\n\tjam, 1\n\tbeat it, 2\n\tthriller, 3\n"
-      @info = "Recently played tracks:\n\tbeat it\n\tthriller\n\tbeat it\nArtist Name, Artist ID:\n\tmicheal jackson, mj0\n\tanderson paak, ap1\n\tan artist's name, aan2\n"
-
-      @abc_info = "Track Name: abc, Artist Name: micheal jackson"
-
+      # expected msg
+      @mj0_info = "Artist Name:\n\tmichael jackson\nTrack Name, Track ID:\n\tabc, 0\n\tjam, 1\n\tbeat it, 2\n\tthriller, 3\n"
+      @info = "Recently played tracks:\n\tthriller\n\tbeat it\n\tjam\nArtist Name, Artist ID:\n\tmichael jackson, mj0\n\tanderson paak, ap1\n\tan artist's name, aan2\n"
+      @abc_info = "Track Name: abc, Artist Name: michael jackson"
       @add_track_billie_jean = "Successfully added, track id '6'"
-
       @add_artist_fujisawa_mamoru = "Successfully added, artist id 'fm3'"
-
-      @help_msg = <<~EOF
-      IMS Command Mannual:
-
-      help
-        get help messages of all commands in this IMS app
-      
-      exit
-        save and exit IMS
-      
-      info
-        display recently played tracks' info
-      
-      info artist <artist_id>
-        display this artist's info
-      
-      info track <track_id>
-        display this track's info
-      
-      add artist <artist_name>
-        add this artist to the table, display the id assigned to this new artist
-      
-      add track <track_name> by <artist_id>
-        add this track to this artist's record, display the id assigned to this new track
-      
-      count tracks by <artist_id>
-        display # of tracks of this artist
-      
-      list tracks by <aritist_id>
-        display info of all the tracks of this artist
-
-      EOF
-
-    end
-
-    # TODO: error test
-
-    it "summary" do
-      @table.info.must_equal @info
-    end
-
-    it "artist info" do
-      @table.info_artist("mj0").must_equal @mj0_info
-    end
-
-    it "count tracks" do
-      @table.count_tracks_by("mj0").must_equal "4"
+      @invalid_command = "-IMS: command not found"
+      store = YAML::Store.new('./data/help_msg.yml')
+      @help_msg = store.transaction{store[:help_msg]}
     end
 
     it "info" do
@@ -87,7 +35,7 @@ describe "my test" do
       @main.execute("info track 0").must_equal @abc_info
     end
 
-    it "count track" do
+    it "count tracks by" do
       @main.execute("count tracks by mj0").must_equal "4"
     end
 
@@ -100,11 +48,10 @@ describe "my test" do
     end
 
     it "help" do
-      @table.help.must_equal @help_msg
+      @main.execute("help").must_equal @help_msg
     end
 
-    it "run" do
-      @main.run
+    it "wrong command" do
+      @main.execute("wrong command").must_equal @invalid_command
     end
-
   end
