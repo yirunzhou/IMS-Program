@@ -33,7 +33,6 @@ class Main
 
       if str.match(/^exit\b/)
         save
-        msg = "-IMS: Successfully saved, bye"
         exit
       elsif str.match(/^help\b/)
         msg = @table.help

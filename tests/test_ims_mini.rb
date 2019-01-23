@@ -18,10 +18,10 @@ describe "my test" do
 
       @main = Main.new
 
-      @mj0_info = "Artist Name:\nmicheal jackson\nTrack Name, Track ID:\nabc, 0\njam, 1\nbeat it, 2\nthriller, 3\n"
-      @info = "Recently played tracks:\nthriller\nbeat it\njam\n"
+      @mj0_info = "Artist Name:\n\tmicheal jackson\nTrack Name, Track ID:\n\tabc, 0\n\tjam, 1\n\tbeat it, 2\n\tthriller, 3\n"
+      @info = "Recently played tracks:\n\tthriller\n\tbeat it\n\tjam\nArtist Name, Artist ID:\n\tmicheal jackson, mj0\n\tanderson paak, ap1\n\tan artist's name, aan2\n"
 
-      @abc_info = "Track Name: abc"
+      @abc_info = "Track Name: abc, Artist Name: micheal jackson"
 
       @add_track_billie_jean = "Successfully added, track id '6'"
 
@@ -102,6 +102,8 @@ describe "my test" do
     it "help" do
       @table.help.must_equal @help_msg
     end
+
+
 
     # it "exit or help command" do
     #     @main.execute("help").must_equal("help")

@@ -15,16 +15,21 @@ class DJTable
   attr_accessor :id_to_track
   attr_accessor :played
 
-  # TODO: store help msg to file
   # TODO: move validation of argument to another function
-  # TODO: add artist_id => artist name relation
+  
   # TODO: cap artist name when displaying it
-  # TODO: empty line space
+  
   # TODO: check track_id is something like 1o09asdjnd, not valid
+
   def info()
     status = "Recently played tracks:\n"
     (0...3).each do |i|
-       status << "#{played[played.length-1-i]}\n" if played.length > i
+      status << "\t#{played[played.length-1-i]}\n" if played.length > i
+    end
+
+    status << "Artist Name, Artist ID:\n"
+    @id_to_artist.each do |k, v|
+      status << "\t#{v}, #{k}\n"
     end
     return status
   end
@@ -34,10 +39,10 @@ class DJTable
       raise ArgumentError.new("Error, artist id '#{artist_id}' does not exist")
     end
     record = id_to_record[artist_id]
-    info = "Artist Name:\n#{record.name}\n"
+    info = "Artist Name:\n\t#{record.name}\n"
     info << "Track Name, Track ID:\n"
     (0...record.tracks.length).each do |i|
-      info << "#{record.tracks[i]}, #{record.track_ids[i]}\n"
+      info << "\t#{record.tracks[i]}, #{record.track_ids[i]}\n"
     end
     return info
   end
@@ -47,7 +52,14 @@ class DJTable
     if !id_to_track.key?(track_id)
       raise ArgumentError.new("Error, track id '#{track_id}' does not exist")
     end
-    return "Track Name: #{id_to_track[track_id]}"
+    artist = ""
+    @id_to_record.each do |k, v|
+      if v.track_ids.include? track_id
+        artist = v.name
+        break
+      end
+    end
+    return "Track Name: #{id_to_track[track_id]}, Artist Name: #{artist}"
   end
 
   def count_tracks_by(artist_id)
