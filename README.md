@@ -39,5 +39,16 @@ IMS Command Mannual:
         display info of all the tracks of this artist
 
 
-```rake test``` to run the test
+<argument_name> is argument for that command
+
+
+## Design
+
+
+
+## Unit Test
+
+```rake test``` to run the test, testing code is in ```./test/test_ims_mini.rb```
+
+
 
