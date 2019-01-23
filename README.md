@@ -42,19 +42,6 @@ IMS Command Mannual:
 
 <argument_name> is argument for that command
 
-## File Structure
-
-### Unit Test
-
-I use `Rakefile` to automate my test.
-`rake test` to run the test, testing code is in `./test/test_ims_mini.rb`
-
-
-### Data Persistence
-
-`DJTable`'s data are stored in `./data/data.yml`
-Also I put the long help message in `./data/help_msg/yml`
-
 
 ## Design
 
@@ -72,6 +59,26 @@ There are mainly three classes, `DJTable`, `ArtistRecord`, `Main`:
  - Act as an interface between raw input and `DJTable` instance;
  - Process raw string input to see what command user is intended to use and then extract arguments accordingly(regex), finally, call the right method of `DJTable` instance with right arguments;
  - Loop until user exit;
+ 
+ 
+
+## File Structure
+
+### Data Persistence
+
+`./data` is used for data persistence;
+`DJTable`'s data are stored in `./data/data.yml`;
+Also I put the long help message in `./data/help_msg/yml`;
+
+### Unit Test
+
+`./test` is used for testing files;
+I use `Rakefile` to automate my test;
+`rake test` to run the test, testing code is in `./test/test_ims_mini.rb`;
+
+
+
+
  
 
 
