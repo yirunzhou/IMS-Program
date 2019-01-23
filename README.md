@@ -109,8 +109,7 @@ I use `Rakefile` to automate my test;
  It takes raw user input, makes it downcase and separates words by `1` space, making the regex inside `execute` method a lot more easier to extract arguments.\
  \
  `execute`: \
- It takes the preprocessed command from `preprocess` and use regrex to determine intended command and arguments, and execute.
- Then return response messages.\
+ It takes the preprocessed command from `preprocess` and use regrex to get intended command and arguments, then executes methods of instance of `DJTable`, finally returns response message.\
  
 
 ## Other thoughts
