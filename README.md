@@ -1,7 +1,13 @@
 
-IMS project
+# IMS project
 
-project skeleton copied from 'Learning Ruby the Hard Way'
+## Description
+
+Command line program that helps DJ to manage their aritsts and tracks. 
+COSI 105b assiginment 
+
+
+
 
 ```rake test``` to run the test
 
@@ -33,13 +39,4 @@ Pay attention to separation of concerns. Your app will probably have approximate
   1The class that implements the loop that prompts the user submits the request
   2The classes and methods that interpret a request (coming in as a text string), process it, and return the response (as another text string)
   3The classes and methods which represent the information, tracks and artists, and knows how to read and store them from disk
-
-
-Questions:
-
-how to put these three together But test them separately?
-
-writing test in a big function
-
-
 
