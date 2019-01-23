@@ -91,14 +91,26 @@ I use `Rakefile` to automate my test;
   `assigin_artist_id`: \
   It takes new artist name and get the artists' initial, following by a number, which is the amount of artists before adding the new artist.\
   e.g. Command `add artist paul mccartney` when there was no artist before, then this function assign `pm0` to artist `paul mccartney`.\
-  If there already exists the same artist, `validation` method throws exception.
+  If there already exists the same artist, `validation` method throws exception.\
   \
   `assigin_track_id`: \
   It assign the number of tracks in IMS as an ID for this track. Duplication check is in method `add_track` as it only make sense to check if there is a same track for an artist.\
   
   
+ ### Main
  
-
+ `initialize`:\
+ It takes a boolean `test` as indicator for test mode. If true then it loads testing data in `./data/test_store.yml`, otherwise loads user's data in `./data/data.yml`.\
+ \
+ `run`:\
+ Run the loop to get user input and print message.\
+ \
+ `preprocess`:\
+ It takes raw user input, makes it downcase and separates words by `1` space, making the regex inside `execute` method a lot more easier to extrack arguments.\
+ `execute`: \
+ It takes the preprocessed command from `preprocess` and use regrex to determine intended command and arguments, and execute.
+ Then return response messages.\
+ \
 
 ## Other thoughts
 
