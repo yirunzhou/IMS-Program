@@ -68,13 +68,13 @@ There are mainly three classes, `DJTable`, `ArtistRecord`, `Main`:
 
 `./data` is used for data persistence;\
 `DJTable`'s data are stored in `./data/data.yml`;\
-Also I put the long help message in `./data/help_msg/yml`;\
+Also I put the long help message in `./data/help_msg/yml`;
 
 ### Unit Test
 
 `./test` is used for testing files;\
 I use `Rakefile` to automate my test;\
-`rake test` to run the test, testing code is in `./test/test_ims_mini.rb`;\
+`rake test` to run the test, testing code is in `./test/test_ims_mini.rb`;
 
 
 
@@ -93,7 +93,7 @@ I use `Rakefile` to automate my test;\
   e.g. Command `add artist paul mccartney` when there was no artist before, then this function assign `pm0` to artist `paul mccartney`.\
   If there already exists the same artist, `validation` method throws exception.\
   \
-  `assigin_track_id`: \
+  `assigin_track_id`: 
   It assign the number of tracks in IMS as an ID for this track. Duplication check is in method `add_track` as it only make sense to check if there is a same track for an artist.\
   
   
