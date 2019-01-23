@@ -49,7 +49,7 @@ There are mainly three classes, `DJTable`, `ArtistRecord`, `Main`:
  #### DJTable
  - Deal with all the logics for adding information (artists and tracks);
  - Response with text message or exceptions when some arguments are invalid;
- - Loading data using `YAML`;
+ - Save and load data using `YAML`;
  
  #### ArtistRecord
  - Act as a record for a single artist with his or her name and tracks' information (track name and id);
