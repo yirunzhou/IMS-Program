@@ -66,15 +66,15 @@ There are mainly three classes, `DJTable`, `ArtistRecord`, `Main`:
 
 ### Data Persistence
 
-`./data` is used for data persistence;
-`DJTable`'s data are stored in `./data/data.yml`;
-Also I put the long help message in `./data/help_msg/yml`;
+`./data` is used for data persistence;\
+`DJTable`'s data are stored in `./data/data.yml`;\
+Also I put the long help message in `./data/help_msg/yml`;\
 
 ### Unit Test
 
-`./test` is used for testing files;
-I use `Rakefile` to automate my test;
-`rake test` to run the test, testing code is in `./test/test_ims_mini.rb`;
+`./test` is used for testing files;\
+I use `Rakefile` to automate my test;\
+`rake test` to run the test, testing code is in `./test/test_ims_mini.rb`;\
 
 
 
