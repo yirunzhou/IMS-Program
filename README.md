@@ -66,7 +66,7 @@ There are mainly three classes, `DJTable`, `ArtistRecord`, `Main`:
 
 ### Data Persistence
 
-`./data` is used for data persistence; /br
+`./data` is used for data persistence;
 `DJTable`'s data are stored in `./data/data.yml`;
 Also I put the long help message in `./data/help_msg/yml`;
 
@@ -76,6 +76,18 @@ Also I put the long help message in `./data/help_msg/yml`;
 I use `Rakefile` to automate my test;
 `rake test` to run the test, testing code is in `./test/test_ims_mini.rb`;
 
+
+
+## Documentation for methods
+
+  ### DJTable
+  Functions with the same names as commands (such like function count_tracks_by for command 'count tracks by') return text messages to display in console.
+  
+  Other helper functions:
+  
+  `assigin_artist_id`: 
+  It takes new artist name and get the artists' initial, following by a number, which is the amount of artists before adding the new artist. \
+  e.g. Command 'add artist paul mccartney' when there was no artist before, then this function assign 'pm0' to artist 'paul mccartney'.\
 
 
 
