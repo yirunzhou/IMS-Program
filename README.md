@@ -61,7 +61,7 @@ There are mainly three classes, `DJTable`, `ArtistRecord`, `Main`:
  
 ## Unit Test
 
-I used `Rakefile` to automate my test.
+I use `Rakefile` to automate my test.
 `rake test` to run the test, testing code is in `./test/test_ims_mini.rb`
 
 
