@@ -50,7 +50,6 @@ There are mainly three classes, `DJTable`, `ArtistRecord`, `Main`:
  #### DJTable
  - Deal with all the logics for adding information (artists and tracks);
  - Response with text message or exceptions when some arguments are invalid;
- - Save and load data using `YAML`;
  
  #### ArtistRecord
  - Act as a record for a single artist with his or her name and tracks' information (track name and id);
@@ -59,6 +58,7 @@ There are mainly three classes, `DJTable`, `ArtistRecord`, `Main`:
  - Act as an interface between raw input and `DJTable` instance;
  - Process raw string input to see what command user is intended to use and then extract arguments accordingly(regex), finally, call the right method of `DJTable` instance with right arguments;
  - Loop until user exit;
+ - Save and load data using `YAML`;
  
  
 
