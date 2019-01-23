@@ -85,9 +85,13 @@ I use `Rakefile` to automate my test;
   
   Other helper functions:
   
-  `assigin_artist_id`: 
-  It takes new artist name and get the artists' initial, following by a number, which is the amount of artists before adding the new artist. \
+  `validation`:\
+  It checks if `artist_id`, `track_id` are valid, and checks if `artist` (artist's name) already exitsts. If so, throw exception accordingly.\
+  \
+  `assigin_artist_id`: \
+  It takes new artist name and get the artists' initial, following by a number, which is the amount of artists before adding the new artist.\
   e.g. Command 'add artist paul mccartney' when there was no artist before, then this function assign 'pm0' to artist 'paul mccartney'.\
+  If there already exists the same artist, `validation` method throws exception.
 
 
 
