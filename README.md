@@ -66,7 +66,7 @@ There are mainly three classes, `DJTable`, `ArtistRecord`, `Main`:
 
 ### Data Persistence
 
-`./data` is used for data persistence;
+`./data` is used for data persistence; /br
 `DJTable`'s data are stored in `./data/data.yml`;
 Also I put the long help message in `./data/help_msg/yml`;
 
