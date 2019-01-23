@@ -4,7 +4,7 @@ require 'yaml/store'
 # TODO: indentattion check
 class Main
     def initialize()
-      @store = YAML::Store.new('./data/test_store.yml')
+      @store = YAML::Store.new('./data/data.yml')
       @table = @store.transaction{@store[:table]}
       @table = DJTable.new if @table == nil
     end

@@ -1,0 +1,90 @@
+Yiruns-MacBook-Pro:pa-ims yirunzhou$ ruby ims
+> info
+Recently played tracks:
+Artist Name, Artist ID:
+> info artist mj0
+Error, artist id 'mj0' does not exist
+> info track 0
+Error, track id '0' does not exist
+> add artist michael jackson
+Successfully added, artist id 'mj0'
+> add track billie jean by mj0
+Successfully added, track id '0'
+> add track beat it by mj0
+Successfully added, track id '1'
+> add track jam by mj0
+Successfully added, track id '2'
+> info artist mj0
+Artist Name:
+	michael jackson
+Track Name, Track ID:
+	billie jean, 0
+	beat it, 1
+	jam, 2
+> info track 2
+Track Name: jam, Artist Name: michael jackson
+> play 0
+Playing track 'billie jean'
+> play 1
+Playing track 'beat it'
+> play 2
+Playing track 'jam'
+> count tracks by mj0
+3
+> list tracks by mj0
+Artist Name:
+	michael jackson
+Track Name, Track ID:
+	billie jean, 0
+	beat it, 1
+	jam, 2
+> add artist anderson paak 
+Successfully added, artist id 'ap1'
+> info  
+Recently played tracks:
+	jam
+	beat it
+	billie jean
+Artist Name, Artist ID:
+	michael jackson, mj0
+	anderson paak, ap1
+> add artist michael jacksonnnnnnnn
+Successfully added, artist id 'mj2'
+> wrong command 
+-IMS: command not found ***
+> info track 1non-numeric
+Error, invalid track id
+> add track jam by mj0
+Error, track 'jam' already exists
+> help
+IMS Command Mannual:
+
+help
+  get help messages of all commands in this IMS app
+
+exit
+  save and exit IMS
+
+info
+  display recently played tracks' info
+
+info artist <artist_id>
+  display this artist's info
+
+info track <track_id>
+  display this track's info
+
+add artist <artist_name>
+  add this artist to the table, display the id assigned to this new artist
+
+add track <track_name> by <artist_id>
+  add this track to this artist's record, display the id assigned to this new track
+
+count tracks by <artist_id>
+  display # of tracks of this artist
+
+list tracks by <aritist_id>
+  display info of all the tracks of this artist
+
+> exit
+Yiruns-MacBook-Pro:pa-ims yirunzhou$ 

@@ -1,0 +1,34 @@
+---
+:table: !ruby/object:DJTable
+  id_to_record:
+    mj0: !ruby/object:ArtistRecord
+      name: michael jackson
+      tracks:
+      - billie jean
+      - beat it
+      - jam
+      track_ids:
+      - 0
+      - 1
+      - 2
+    ap1: !ruby/object:ArtistRecord
+      name: anderson paak
+      tracks: []
+      track_ids: []
+    mj2: !ruby/object:ArtistRecord
+      name: michael jacksonnnnnnnn
+      tracks: []
+      track_ids: []
+  id_to_artist:
+    mj0: michael jackson
+    ap1: anderson paak
+    mj2: michael jacksonnnnnnnn
+  id_to_track:
+    0: billie jean
+    1: beat it
+    2: jam
+  played:
+  - billie jean
+  - beat it
+  - jam
+:last_run: 2019-01-23 00:26:40.595447000 -05:00
