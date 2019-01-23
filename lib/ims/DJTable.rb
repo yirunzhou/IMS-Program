@@ -17,8 +17,6 @@ class DJTable
 
   # TODO: move validation of argument to another function
   
-  # TODO: cap artist name when displaying it
-  
   # TODO: check track_id is something like 1o09asdjnd, not valid
 
   def info()
@@ -47,7 +45,6 @@ class DJTable
     return info
   end
 
-  # TODO: and its artist?
   def info_track(track_id)
     if !id_to_track.key?(track_id)
       raise ArgumentError.new("Error, track id '#{track_id}' does not exist")
@@ -84,10 +81,14 @@ class DJTable
     if !id_to_artist.key?(artist_id)
       raise ArgumentError.new("Error, artist id '#{artist_id}' does not exist")
     end
+    record = id_to_record[artist_id]
+    if record.tracks.include? track
+      raise ArgumentError.new("Error, track '#{track}' already exists")
+    end
     track_id = assign_track_id(track)
     id_to_track.update(track_id => track)
-    id_to_record[artist_id].tracks.push(track)
-    id_to_record[artist_id].track_ids.push(track_id)
+    record.tracks.push(track)
+    record.track_ids.push(track_id)
     return "Successfully added, track id '#{track_id}'"
   end
 
@@ -106,8 +107,10 @@ class DJTable
   end
 
   ### aux functions ###
-  # TODO: problem with existing artist name
   def assign_artist_id(artist)
+    if @id_to_artist.has_value? artist
+      raise ArgumentError.new("Error, artist '#{artist}' already exists")
+    end
     id = ""
     artist.split.each do |i|
       id << i[0]
@@ -116,6 +119,9 @@ class DJTable
   end
 
   def assign_track_id(track)
+    if @id_to_track.has_value? track
+      raise ArgumentError.new("Error, track '#{track}' already exists")
+    end
     return id_to_track.length
   end
 

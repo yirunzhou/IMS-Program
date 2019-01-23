@@ -103,7 +103,9 @@ describe "my test" do
       @table.help.must_equal @help_msg
     end
 
-
+    it "run" do
+      @main.run
+    end
 
     # it "exit or help command" do
     #     @main.execute("help").must_equal("help")
