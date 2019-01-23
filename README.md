@@ -10,6 +10,9 @@ https://github.com/yirunzhou/IMS-Program/blob/master/README.md
 
 ## Manual
 
+`ruby ims` to run the program
+
+
 IMS Command Mannual:
 
       help
