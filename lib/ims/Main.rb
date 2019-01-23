@@ -2,7 +2,6 @@ require "./lib/ims/DJTable.rb"
 require 'yaml/store'
 
 # TODO: indentattion check
-# TODO: prompt
 class Main
     def initialize()
       @store = YAML::Store.new('./data/test_store.yml')

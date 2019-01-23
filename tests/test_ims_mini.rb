@@ -19,7 +19,7 @@ describe "my test" do
       @main = Main.new
 
       @mj0_info = "Artist Name:\n\tmicheal jackson\nTrack Name, Track ID:\n\tabc, 0\n\tjam, 1\n\tbeat it, 2\n\tthriller, 3\n"
-      @info = "Recently played tracks:\n\tthriller\n\tbeat it\n\tjam\nArtist Name, Artist ID:\n\tmicheal jackson, mj0\n\tanderson paak, ap1\n\tan artist's name, aan2\n"
+      @info = "Recently played tracks:\n\tbeat it\n\tthriller\n\tbeat it\nArtist Name, Artist ID:\n\tmicheal jackson, mj0\n\tanderson paak, ap1\n\tan artist's name, aan2\n"
 
       @abc_info = "Track Name: abc, Artist Name: micheal jackson"
 
