@@ -45,7 +45,8 @@ IMS Command Mannual:
 
 ## Design
 
-There are mainly three classes, `DJTable`, `ArtistRecord`, `Main`:
+ #### General
+ Get user's input, process it, and call method with extracted arguments to manipulate data of IMS. There are mainly three classes, `DJTable`, `ArtistRecord`, `Main`.
 
  #### DJTable
  - Deal with all the logics for adding information (artists and tracks);
@@ -102,14 +103,15 @@ I use `Rakefile` to automate my test;\
  `initialize`:\
  It takes a boolean `test` as indicator for test mode. If true then it loads testing data in `./data/test_store.yml`, otherwise loads user's data in `./data/data.yml`.\
  \
- `run`:\
- Run the loop to get user input and print message.\
- \
  `preprocess`:\
  It takes raw user input, makes it downcase and separates words by `1` space, making the regex inside `execute` method a lot more easier to extract arguments.\
  \
  `execute`: \
  It takes the preprocessed command from `preprocess` and use regrex to get intended command and arguments, then executes methods of instance of `DJTable`, finally returns response message.\
+ \
+ `run`:\
+ Run the loop to get user input, call `preprocess` and then `execute`.\
+ 
  
 
 ## Other thoughts
