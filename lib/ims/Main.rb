@@ -38,7 +38,7 @@ class Main
         msg = @table.help
 
       elsif match = str.match(/^info track ([\s\S]*)/)
-        msg = @table.info_track(match.captures[0].to_i)
+        msg = @table.info_track(match.captures[0])
 
       elsif match = str.match(/^info artist ([\s\S]*)/)
         msg = @table.info_artist(match.captures[0])
@@ -59,7 +59,7 @@ class Main
         msg = @table.add_artist(match.captures[0])
 
       elsif match = str.match(/^play ([\s\S]*)\b/)
-        msg = @table.play(match.captures[0].to_i)
+        msg = @table.play(match.captures[0])
         
       else
         msg = "-IMS: command not found ***"

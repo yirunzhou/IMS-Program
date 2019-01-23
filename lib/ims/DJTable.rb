@@ -16,7 +16,6 @@ class DJTable
   attr_accessor :played
 
   # TODO: move validation of argument to another function
-  
   # TODO: check track_id is something like 1o09asdjnd, not valid
 
   def info()
@@ -46,6 +45,10 @@ class DJTable
   end
 
   def info_track(track_id)
+    if !track_id.numeric?
+      raise ArgumentError.new("Error, invalid track id")
+    end
+    track_id = track_id.to_i
     if !id_to_track.key?(track_id)
       raise ArgumentError.new("Error, track id '#{track_id}' does not exist")
     end
@@ -93,6 +96,10 @@ class DJTable
   end
 
   def play(track_id)
+    if !track_id.numeric?
+      raise ArgumentError.new("Error, invalid track id")
+    end
+    track_id = track_id.to_i
     if !id_to_track.key?(track_id)
       raise ArgumentError.new("Error, track id '#{track_id}' does not exist")
     end
