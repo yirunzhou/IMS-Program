@@ -1,6 +1,6 @@
 ---
 :help_msg: |+
-  IMS Command Mannual:
+  IMS Command Manual:
 
   help
     get help messages of all commands in this IMS app
@@ -26,6 +26,6 @@
   count tracks by <artist_id>
     display # of tracks of this artist
 
-  list tracks by <aritist_id>
+  list tracks by <artist_id>
     display info of all the tracks of this artist
 

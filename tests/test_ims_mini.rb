@@ -11,7 +11,7 @@ describe "my test" do
     before do
       # testing mode set to true
       @main = Main.new(true)
-
+      
       # expected msg
       @mj0_info = "Artist Name:\n\tmichael jackson\nTrack Name, Track ID:\n\tabc, 0\n\tjam, 1\n\tbeat it, 2\n\tthriller, 3\n"
       @info = "Recently played tracks:\n\tthriller\n\tbeat it\n\tjam\nArtist Name, Artist ID:\n\tmichael jackson, mj0\n\tanderson paak, ap1\n\tan artist's name, aan2\n"

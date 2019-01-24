@@ -5,7 +5,7 @@ class Main
   def initialize(test=false)
     if !test
       @store = YAML::Store.new('./data/data.yml')  
-    else 
+    else
       @store = YAML::Store.new('./data/test_store.yml')
     end
     @table = @store.transaction{@store[:table]}
