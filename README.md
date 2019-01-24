@@ -119,6 +119,7 @@ I use `Rakefile` to automate my test;\
 
 ## Other thoughts
 
-- I should probably separate my test to multiple files so that I could test different parts easier.
-- Maybe I can loose the coupling between `Main` and `DJTable` as sometimes making my test messy.
-- Too many if else in `Main` when trying to figure out what command user wants, I try to use hashing and lambda but I gave up because when I use them my code are even much more longer
+- I should probably separate my test to multiple files so that I could test different parts easier. I kept updating my testing files when developing, losing many tests for the parts I worked with in the begining.
+- Maybe I can decouple between `Main` and `DJTable` as sometimes making my test messy.
+- Too many if else in `Main` when trying to figure out what command user wants, I try to use hashing and lambda but I gave up because when I use them my code are even much more longer and less readable.
+- Other rubyish things, like I still use `return` in ruby functions.
